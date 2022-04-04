@@ -1,3 +1,4 @@
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -38,9 +39,16 @@ public class MBSimpleRequestAPIExample {
             BufferedReader reader = new BufferedReader(iReader);
             String line;
             while((line = reader.readLine()) != null) {
+                String jsonString = line;
+
                 Gson gson = new Gson();
-                JsonElement element = new JsonParser().parse(line);
-                JsonElement recordings = element.getAsJsonObject().get("recordings");
+                JsonParser parser = new JsonParser();
+                JsonElement response = parser.parse(jsonString);
+                JsonObject obj = response.getAsJsonObject();
+                JsonArray recordings = obj.getAsJsonArray("recordings");
+
+
+                System.out.println(recordings);
 
                 // need to work on making the song list from the recordings json element
                 // then from there iterate through the song list and print the songs
@@ -49,7 +57,7 @@ public class MBSimpleRequestAPIExample {
 
                 //System.out.println(song);
 
-                System.out.println(line); // there is actually only 1 line that is printed (all the output is one line)
+                //System.out.println(line); // there is actually only 1 line that is printed (all the output is one line)
 
             }
         } else {
