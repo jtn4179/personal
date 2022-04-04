@@ -1,0 +1,47 @@
+the "recordings" element holds every single song that matches the query
+recordings (list)
+    id
+    score
+    title
+    length
+    video
+    artist-credit (list)
+        name
+        artist
+            id
+            name
+            sort-name
+    first-release-date
+    releases <-- not sure what these are for
+        id
+        status-id
+        count
+        title
+        status
+        release-group
+            id
+            type-id
+            primate-type-id
+            title
+            primary-type
+        date
+        country
+        release events (list)
+            date
+            area
+                id
+                name
+                sort-name
+                iso-3166-codes
+        track-count
+        media (list)
+            position
+            track (list)
+                id
+                number
+                title
+                length
+            track-count
+            track-offset
+
+            ** track-offset closes the releases list **

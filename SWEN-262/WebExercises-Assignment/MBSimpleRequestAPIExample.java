@@ -1,3 +1,7 @@
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
 import javax.net.ssl.HttpsURLConnection;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -17,7 +21,7 @@ public class MBSimpleRequestAPIExample {
         // %20 used to encode spaces in URL
         String query = "\"Carry%20on%20Wayward%20Son\"";
 
-        URL queryUrl = new URL(SEARCH_URL + query + XML_FORMAT);
+        URL queryUrl = new URL(SEARCH_URL + query + JSON_FORMAT);
         HttpsURLConnection connection =
                 (HttpsURLConnection)queryUrl.openConnection();
 
@@ -34,7 +38,19 @@ public class MBSimpleRequestAPIExample {
             BufferedReader reader = new BufferedReader(iReader);
             String line;
             while((line = reader.readLine()) != null) {
-                System.out.println(line);
+                Gson gson = new Gson();
+                JsonElement element = new JsonParser().parse(line);
+                JsonElement recordings = element.getAsJsonObject().get("recordings");
+
+                // need to work on making the song list from the recordings json element
+                // then from there iterate through the song list and print the songs
+
+                // then work on doing the URL shit
+
+                //System.out.println(song);
+
+                System.out.println(line); // there is actually only 1 line that is printed (all the output is one line)
+
             }
         } else {
             System.out.println("Server responded with " +  responseCode +
