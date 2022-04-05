@@ -1,3 +1,5 @@
+import POJO.Song;
+import POJO.SongList;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -9,6 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.ArrayList;
 
 public class MBSimpleRequestAPIExample {
     private static final String SEARCH_URL =
@@ -47,17 +50,11 @@ public class MBSimpleRequestAPIExample {
                 JsonObject obj = response.getAsJsonObject();
                 JsonArray recordings = obj.getAsJsonArray("recordings");
 
+                ArrayList<Song> songs = gson.ListFromJson(recordings).getRecordings();
 
-                System.out.println(recordings);
-
-                // need to work on making the song list from the recordings json element
-                // then from there iterate through the song list and print the songs
-
-                // then work on doing the URL shit
-
-                //System.out.println(song);
-
-                //System.out.println(line); // there is actually only 1 line that is printed (all the output is one line)
+                for (int i = 0; i < songs.size(); i++) {
+                    System.out.println((i+1) + ") " + songs.get(i));
+                }
 
             }
         } else {

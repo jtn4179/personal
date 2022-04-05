@@ -1,17 +1,17 @@
 import POJO.Song;
 import POJO.SongList;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 
 public class Gson extends Object {
 
     public Gson() {}
 
-    public Song SongFromJson(JsonElement jsonElement) {
-        return new JsonToSong().createSong(jsonElement);
-    }
+    public Song SongFromJson(JsonObject object) { return new JsonToSong().createSong(object); }
 
-    public SongList ListFromJson(JsonElement element) {
-        return new JsonToList().createList(element);
+    public SongList ListFromJson(JsonArray array) {
+        return new JsonToList().createList(array);
     }
 
 
