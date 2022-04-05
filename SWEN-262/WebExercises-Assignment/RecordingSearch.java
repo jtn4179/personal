@@ -20,18 +20,13 @@ public class RecordingSearch {
         // %20 used to encode spaces in URL
         String query = "\"";
 
-        // args[0] = "smells";
-        // args[1] = "like";
-        // args[2] = "teen";
-        // args[3] = "spirit";
-
-        for (int i = 0; i < args.length; i++) {
-            query += args[i];
-            if (i + 1 <= args.length) {
-                query += "%";
-            }
-        }
-        query += "\"";
+         for (int i = 0; i < args.length; i++) {
+             query += args[i];
+             if (i + 1 <= args.length) {
+                 query += "%";
+             }
+         }
+         query += "\"";
 
         URL queryUrl = new URL(SEARCH_URL + query + JSON_FORMAT);
         HttpsURLConnection connection =
@@ -50,16 +45,20 @@ public class RecordingSearch {
             BufferedReader reader = new BufferedReader(iReader);
             String line;
             while((line = reader.readLine()) != null) {
-                String jsonString = line;
+                String jsonString = line; // renmaing for understanding purposes
 
-                Gson gson = new Gson();
+                // create an adapter and parser
+                JsonAdapter adapter = new JsonAdapter();
                 JsonParser parser = new JsonParser();
                 JsonElement response = parser.parse(jsonString);
+                // turn the response into a jsonArray of the recordings
                 JsonObject obj = response.getAsJsonObject();
                 JsonArray recordings = obj.getAsJsonArray("recordings");
 
-                ArrayList<Song> songs = gson.ListFromJson(recordings);
+                // use the adapter to turn the json array into an array of songs
+                ArrayList<Song> songs = adapter.ListFromJson(recordings);
 
+                // nice printing
                 for (int i = 0; i < songs.size(); i++) {
                     System.out.println((i+1) + ") " + songs.get(i));
                 }

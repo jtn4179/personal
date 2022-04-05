@@ -1,0 +1,28 @@
+C:\opt\Java\jdk-11.0.12\bin\java.exe "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.2\lib\idea_rt.jar=64138:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.2\bin" -Dfile.encoding=UTF-8 -classpath C:\Users\jnovi\PersonalGithub\SWEN-262\WebExercises-Assignment\out\production\WebExercises-Assignment;C:\Users\jnovi\.m2\repository\com\google\code\gson\gson\2.9.0\gson-2.9.0.jar RecordingSearch smells like teen spirit
+1) Smells Like Teen Spirit by Bette Dillinger
+2) Smells Like Teen Spirit by Tori Amos
+3) Smells Like Teen Spirit by Mountain Men
+4) Smells Like Teen Spirit by Ape Escape
+5) Smells Like Teen Spirit by Vojtěch Dyk & B Side Band
+6) Smells Like Teen Spirit by The Arrogant Sons of Bitches
+7) Smells Like Teen Spirit by Kevin Devine
+8) Smells Like Teen Spirit by Deep Schrott
+9) Smells Like Teen Spirit by The International Classic Rock Orchestra
+10) Smells Like Teen Spirit by Hammerschmitt
+11) Smells Like Teen Spirit by Ben Wild and the Wild Band
+12) Smells Like Teen Spirit by Tori Amos
+13) Smells Like Teen Spirit by Ben Williams
+14) (Smells Like) Teen Spirit by Eric Roche
+15) Smells Like Teen Spirit by Możdżer Danielsson Fresco
+16) Smells Like Teen Spirit by Max, Mack, & Carson
+17) Smells Like Teen Spirit by Nirvana
+18) Smells Like Teen Spirit by Gabriella Quevedo
+19) Smells Like Teen Spirit by The Bogart’s Acoustic Trio
+20) Smells Like Teen Spirit by Scala & Kolacny Brothers
+21) Smells Like Teen Spirit by Bored Lord
+22) Smells Like Teen Spirit by Tori Amos
+23) Smells Like Teen Spirit by René Amesz
+24) Smells Like Teen Spirit by The Ukulele Orchestra of Great Britain
+25) Smells Like Teen Spirit by Ainhoa Arteta
+
+Process finished with exit code 0

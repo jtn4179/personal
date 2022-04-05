@@ -8,7 +8,7 @@ public class JsonToList {
     /**
      * creates an array list from the JSON array
      * @param array the raw data JSON array
-     * @return the SongList class
+     * @return an array list of song objects
      */
     public static ArrayList<Song> createList(JsonArray array) {
         ArrayList<Song> songs = new ArrayList<>();
@@ -21,7 +21,6 @@ public class JsonToList {
 
             songs.add(newSong);
         }
-
 
         return songs;
     }

@@ -3,9 +3,9 @@ import java.util.ArrayList;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
-public class Gson extends Object {
+public class JsonAdapter extends Object {
 
-    public Gson() {}
+    public JsonAdapter() {}
 
     public Song SongFromJson(JsonObject object) { return JsonToSong.createSong(object); }
 
