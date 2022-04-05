@@ -1,5 +1,3 @@
-import POJO.Song;
-import POJO.SongList;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -13,17 +11,27 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class MBSimpleRequestAPIExample {
-    private static final String SEARCH_URL =
-            "https://musicbrainz.org/ws/2/recording?query=";
-
-    private static final String XML_FORMAT = "&fmt=xml";
+public class RecordingSearch {
+    private static final String SEARCH_URL = "https://musicbrainz.org/ws/2/recording?query=";
 
     private static final String JSON_FORMAT = "&fmt=json";
 
     public static void main(String[] args) throws IOException {
         // %20 used to encode spaces in URL
-        String query = "\"Carry%20on%20Wayward%20Son\"";
+        String query = "\"";
+
+        // args[0] = "smells";
+        // args[1] = "like";
+        // args[2] = "teen";
+        // args[3] = "spirit";
+
+        for (int i = 0; i < args.length; i++) {
+            query += args[i];
+            if (i + 1 <= args.length) {
+                query += "%";
+            }
+        }
+        query += "\"";
 
         URL queryUrl = new URL(SEARCH_URL + query + JSON_FORMAT);
         HttpsURLConnection connection =
@@ -50,7 +58,7 @@ public class MBSimpleRequestAPIExample {
                 JsonObject obj = response.getAsJsonObject();
                 JsonArray recordings = obj.getAsJsonArray("recordings");
 
-                ArrayList<Song> songs = gson.ListFromJson(recordings).getRecordings();
+                ArrayList<Song> songs = gson.ListFromJson(recordings);
 
                 for (int i = 0; i < songs.size(); i++) {
                     System.out.println((i+1) + ") " + songs.get(i));
@@ -64,4 +72,5 @@ public class MBSimpleRequestAPIExample {
 
         input.close();
     }
+
 }

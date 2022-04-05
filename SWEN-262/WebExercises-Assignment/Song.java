@@ -1,5 +1,3 @@
-package POJO;
-
 public class Song {
 
     private String title;

@@ -1,9 +1,5 @@
-import POJO.Song;
-import POJO.SongList;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 
 import java.util.ArrayList;
 
@@ -14,7 +10,7 @@ public class JsonToList {
      * @param array the raw data JSON array
      * @return the SongList class
      */
-    public static SongList createList(JsonArray array) {
+    public static ArrayList<Song> createList(JsonArray array) {
         ArrayList<Song> songs = new ArrayList<>();
 
         // take the array and make a song from the JSON object at each index
@@ -27,6 +23,6 @@ public class JsonToList {
         }
 
 
-        return new SongList(songs);
+        return songs;
     }
 }
